@@ -1,51 +1,87 @@
-:root {
-    --text-color: #DBE4EF;
-    --card-front-color: #144480;
-    --card-back-color: #00F4BF;
-}
+
+
+:root{
+    --text-color: #13666c;
+    --card-front-color: #71cdb9;
+    --card-back-color: #3a8763;
+  }
+  
+  body {
+    background: url(img/bg-desktop-blue.webp);
+    font-family: Tomorrow;
+  }
 
 #container {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 4rem;
+    gap: 2rem;
 }
-
-body {
-    background: url('img/bg-desktop-yellow.webp');
-    font-family: Bai Jamjuree;
-}
-footer {
-    background-color: black;
-    color: white;
-    bottom:0;
-    position:fixed;
-    width:100%;
-    height:2rem;
-    margin-top: 0.5rem;
-    font-family: Bai Jamjuree;
-}
-
 
 .cartao {
     margin: 1rem 1rem;
-    background-color: aqua;
     height: 20rem;
     flex-grow: 1;
     flex-basis: calc(33% -6rem);
 }
+
+.cartao__conteudo {
+    background-color: var(--card-front-color);
+    text-align: center;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 300ms ease-in-out;
+}
+
+
 .cartao__conteudo h3 {
     color: var(--text-color);
-    border: 1px solid var(--text-color);
     padding: 0.5rem;
     position: absolute;
     margin: 0.6rem;
     border-radius: 0.6rem;
-    font-size: 1vw;
+    font-size: 2vw;
+    backface-visibility: hidden;
 }
-.cartao__conteudo {
-    text-align: center;
-    height: 100%;
-    background-color: var(--card-front-color);
+
+
+.cartao__conteudo p {
+    margin-top: 1rem;
+    padding: 2rem;
+    margin-top: 4rem;
+    font-size: 1.4vw;
+
 }
-.cartao__conteudo__resposta p{
+
+.cartao__conteudo__pergunta {
+    color: var(--text-color);
+    font-weight: 520;
+}
+
+.cartao__conteudo__resposta {
     color: var(--card-back-color);
-    font-weight: 700;
+    font-weight: 320;
 }
+
+.cartao:hover .cartao__conteudo {
+    transform: rotateY(180deg);
+}
+
+.cartao__conteudo__pergunta,
+.cartao__conteudo__resposta {
+    backface-visibility: hidden;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.cartao__conteudo__resposta{
+    transform: rotateY(180deg);
+    background-color: rgba(111, 219, 105, 0.2);
+    border: 4px solid var(--card-back-color);
+}
+
+
+
